@@ -1,0 +1,92 @@
+body{
+	background-color:#ccc;
+	background-image:url("1.jpg");
+	background-size:100em;
+	background-repeat:repeat-y;
+	height:100%;
+}
+h1{
+	font-family:papyrus,"Times New Roman";
+	font-size:4em;
+	color:white;
+}
+#vtable,table{
+    display: none;
+	color:white;
+	font-family:papyrus;
+				
+}
+#submit{
+	background-color:black;
+	color:white;
+	width:10em;
+	height:3em;
+	border-radius:15%;
+	font-family:papyrus;
+}
+form{
+	padding:2%;
+	margin:0 auto;
+}
+label{
+	width:8em;
+	text-align:left;
+	font-weight:20em;
+	font-size:1.1em;
+	color:white;
+	font-family:papyrus;
+}
+input[type=text],input[type=date]{
+	border:1px solid #999;
+	padding: 0.5em;
+	background-color:rgba(0,0,0,0.5);
+	margin-bottom:0.5em;
+	color:white;
+	width:30%;
+	font-size:1.07em;
+	font-family:papyrus;
+}
+
+#vtable{
+	font-size:1.5em;
+	font-variant:bold;
+}
+@media only screen and (max-width:600px)
+{
+	table{
+	font-size:0.6em;
+	float:left;
+	}
+	th,td{
+		width:25em;
+		font-size:1.15em;
+	}
+	td{
+		font-size:1.8em;
+	}
+	input[type=text],input[type=date]{
+		width:10em;
+	}
+}
+
+#table{
+	border-collapse:collapse;
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+#table td,#table th{
+	border:1px solid white;
+	padding:8px;
+	width:14em;
+}
+tr:hover{
+	background-color:rgba(0,0,0,0.5);
+	
+}
+th{
+	text-align:center;
+}
+
+

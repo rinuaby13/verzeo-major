@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vehicle Registration</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="vehicle.css" rel="stylesheet">
+	
+	<style>
+	#vtable,table{
+    display: none;
+	}
+	</style>
+</head>
+<body>
+	<h1 align="center">Vehicle Registration</h1>
+        <div class="box" align="center">
+        <form name="myForm" action="">
+			<label for="name">Name: </label>
+			<input type="text" id="name">
+			<br>
+			<label for="vname">Vehicle Name: </label>
+			<input type="text" id="vname" required>
+			<br>
+			<label for="vnum">Vehicle Number: </label>
+            <input type="text" id="vnum" required>
+            <br>
+			
+            <label for="entry">Entry Date: </label>
+            <input type="date" id="entry" required>
+            <br>
+            
+            <label for="exit">Exit Date: </label>
+            <input type="date" id="exit" required>
+            <br><br>
+            
+            <input type="button" id="submit" value="SUBMIT">
+            <br>
+        </form><br>
+		</div>
+		
+        <h2 id="vtable" align="center">VEHICLE</h2><br>
+        <table id="table">
+		
+            <tr>
+				<th>NAME</th>
+				<th>VEHICLE NAME</th>
+                <th>VEHICLE NUMBER</th>
+                <th>ENTRY DATE</th>
+                <th>EXIT DATE</th>
+            </tr>
+        </table>
+    
+        <script type="text/javascript">
+            document.getElementById("submit").onclick=function()
+            {	var flag=0;
+				var re=/^([A-Za-z]+\s)*[A-Za-z]+$/;
+				var re2=/^[A-Za-z0-9,-]+$/;
+				var ownername=document.getElementById("name").value;
+				var carname=document.getElementById("vname").value;
+				var carnum=document.getElementById("vnum").value;
+				var entrydate=document.getElementById("entry").value;
+				var exitdate=document.getElementById("exit").value;
+				if(ownername=="")
+				{	alert("Name has to be filled.");
+					flag=1;
+				}
+				if(re.test(ownername))
+					flag=0;
+				else
+				{	
+					alert("Invalid name.Should not contain numbers or special characters.");
+					flag=1;
+				}
+				
+				if(carnum=="")
+				{	alert("Vehicle number is required.");
+					flag=1;
+				}
+				if(re2.test(carnum))
+					flag=0;
+				else
+				{	alert("Vehicle Number should contain only numbers or letters.");
+					flag=1;
+				}
+				if(entrydate==""||exitdate=="")
+				{	alert("Date field is empty");
+					flag=1;
+				}
+				if(exitdate<entrydate)
+				{
+					alert("Invalid entry of Exit date.");
+					flag=1;
+				}
+				
+				if(flag==0)
+				{
+                document.getElementById("table").style.display="block";
+				document.getElementById("vtable").style.display="block";
+				var table = document.getElementById("table");
+                var row = table.insertRow(-1);
+                var name = row.insertCell(0);
+                var vname = row.insertCell(1);
+                var vnum = row.insertCell(2);
+				var entry=row.insertCell(3);
+				var exit=row.insertCell(4);
+                name.innerHTML = ownername;
+                vname.innerHTML =carname;
+                vnum.innerHTML = carnum;
+                entry.innerHTML=entrydate;
+				exit.innerHTML=exitdate;
+				document.getElementById("name").value="";
+				document.getElementById("vname").value="";
+				document.getElementById("vnum").value="";
+				document.getElementById("entry").value="";
+				document.getElementById("exit").value="";
+                return false;
+				}
+				
+			} 
+			
+        </script>
+	
+</body>
+</html>
